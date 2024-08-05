@@ -84,13 +84,10 @@ body {
   border-radius: 50%;
 }
 
-
-
 #devide,
 #multiply,
 #plus,
 #minus,
-
 #Equal {
   background-color: black;
 }
@@ -105,4 +102,21 @@ body {
 
 span:hover {
   background-color: black;
+}
+
+@media (max-width: 420px) {
+  body {
+    padding: 0 20px;
+  }
+  .calc {
+    width: 100%;
+  }
+
+  .calc-input {
+    font-size: 40px;
+  }
+
+  .number {
+    font-size: 20px;
+  }
 }
