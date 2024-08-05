@@ -9,23 +9,43 @@
 
   <body>
     <div class="calc">
-      <input type="text" class="calc-input" />
-      <div class="calc-row">
-        <span id="1" class="number">1</span>
-        <span id="2" class="number">2</span>
-        <span id="3" class="number">3</span>
-        <span id="4" class="number">4</span>
-        <span id="5" class="number">5</span>
-        <span id="6" class="number">6</span>
-        <span id="7" class="number">7</span>
-        <span id="8" class="number">8</span>
-        <span id="9" class="number">9</span>
-        <span id="0" class="number">0</span>
-        <span id="plus" class="number">+</span>
-        <span id="minus" class="number">-</span>
-        <span id="percent" class="number">%</span>
-        <span id="devide" class="number">/</span>
-        <span id="delete" class="number">Delete</span>
+      <input type="text" class="calc-input" value="0"/>
+
+      <div class="calc-container">
+        <div class="calc-row">
+          <span id="AllClear" class="AllClear" value="Ac">AC</span>
+          <span id="percent" class="sign" value="%">%</span>
+          <span id="devide" class="sign" value="/">/</span>
+        </div>
+
+        <div class="calc-row">
+          <span class="number" value="7">7</span>
+          <span class="number" value="8">8</span>
+          <span class="number" value="9">9</span>
+          <span id="multiply" class="sign" value="*">*</span>
+        </div>
+
+        <div class="calc-row">
+          <span class="number" value="4">4</span>
+          <span class="number" value="5">5</span>
+          <span class="number" value="6">6</span>
+          <span id="minus" class="sign" value="-">-</span>
+        </div>
+
+        <div class="calc-row">
+          <span class="number" value="2">1</span>
+          <span class="number" value="2">2</span>
+          <span class="number" value="3">3</span>
+          <span id="plus" class="sign" value="+">+</span>
+        </div>
+
+        <div class="calc-row">
+          <span id="Zero" class="number" value="0">0</span>
+          <span id="Dot" class="dot" value="."
+            ><img src="circle-fill.png"
+          /></span>
+          <span id="Equal" class="sign">=</span>
+        </div>
       </div>
     </div>
 
