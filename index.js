@@ -1,26 +1,32 @@
 const calculatorInput = document.querySelector(".calc-input");
-const calculatorNumber = document.querySelectorAll(".number");
-const calculatorEqualBtn = document.querySelector("#equal");
-const calculatorDeleteBtn = document.querySelector("#delete");
+const calculatorAllClearBtn = document.querySelector(".AllClear");
+const calculatorNumbers = document.querySelectorAll(".number");
+const calculatorSignBtns = document.querySelectorAll(".sign");
+let calculate = "";
 
-Array.from(calculatorNumber).forEach((calculatorNumberElem) => {
-  calculatorNumberElem.addEventListener(
+Array.from(calculatorNumbers).forEach((calculatorNumbersElems) => {
+  calculatorNumbersElems.addEventListener(
     "click",
-    (calculatorNumberElemTarget) => {
-      let calculatorNumberElemTargetTextContent =
-        calculatorNumberElemTarget.currentTarget.textContent;
-
-      calculatorInput.value += calculatorNumberElemTargetTextContent;
-      if (calculatorNumberElemTarget.currentTarget.textContent === "+") {
-        calculatorEnterBtn.addEventListener("click", () => {
-          console.log(this);
-
-          calculatorInput.value = calculatorInput.value +=
-            calculatorInput.value;
-        });
-      }
-      if (calculatorNumberElemTargetTextContent === "Delete") {
-        calculatorInput.value = "";
+    (calculatorNumbersElemsTargets) => {
+      try {
+        if (calculatorNumbersElemsTargets.currentTarget.textContent === "=") {
+          if (calculatorInput.value !== "0") {
+            calculate = eval(calculate);
+            calculatorInput.value = calculate;
+          }
+        } else if (
+          calculatorNumbersElemsTargets.currentTarget.textContent === "AC"
+        ) {
+          calculate = "";
+          calculatorInput.value = calculate;
+        } else {
+          calculate += calculatorNumbersElemsTargets.currentTarget.textContent;
+          calculatorInput.value = calculate;
+        }
+      } catch (error) {
+        calculate = "";
+        calculatorInput.value = calculate;
+        console.log(error);
       }
     }
   );

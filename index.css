@@ -69,10 +69,7 @@ body {
   gap: 20px;
   padding: 20px;
 }
-.number,
-.sign,
-.dot,
-.AllClear {
+.number {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -87,14 +84,21 @@ body {
   border-radius: 50%;
 }
 
-.dot > img {
-  width: 10px;
+
+
+#devide,
+#multiply,
+#plus,
+#minus,
+
+#Equal {
+  background-color: black;
 }
 
-.AllClear,
+#AllClear,
 #Zero {
   justify-content: flex-start;
-  width: 120px;
+  width: 150px;
   border-radius: 40px;
   padding-left: 20px;
 }
