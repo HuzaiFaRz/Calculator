@@ -25,51 +25,38 @@ Array.from(calculatorNumbers).forEach((calculatorNumbersElems) => {
     "click",
     (calculatorNumbersElemsTargets) => {
       try {
-        if (calculatorNumbersElemsTargets.currentTarget.textContent === "+") {
+        let clickBtnText =
+          calculatorNumbersElemsTargets.currentTarget.textContent;
+        if (clickBtnText === "+") {
           numberAnimationGsap("Plus", `${40}px`);
-        } else if (
-          calculatorNumbersElemsTargets.currentTarget.textContent === "-"
-        ) {
+        } else if (clickBtnText === "-") {
           numberAnimationGsap("Minus", `${40}px`);
-        } else if (
-          calculatorNumbersElemsTargets.currentTarget.textContent === "/"
-        ) {
+        } else if (clickBtnText === "/") {
           numberAnimationGsap("Devide", `${40}px`);
-        } else if (
-          calculatorNumbersElemsTargets.currentTarget.textContent === "%"
-        ) {
+        } else if (clickBtnText === "%") {
           numberAnimationGsap("Percent", `${40}px`);
-        } else {
-          numberAnimationGsap(
-            calculatorNumbersElemsTargets.currentTarget.textContent,
-            "100px"
-          );
-        }
-
-        if (calculatorNumbersElemsTargets.currentTarget.textContent === "=") {
-          if (calculatorInput.value !== "0") {
-            calculate = eval(calculate);
-            calculatorInput.value = calculate;
-            numberAnimationGsap(calculate, `${40}px`);
-          }
-        } else if (
-          calculatorNumbersElemsTargets.currentTarget.textContent === "AC"
-        ) {
-          numberAnimationGsap("AC", `${40}px`);
-          if (calculatorInput.value !== "0") {
-            if (calculatorInput.value.slice(0, 0) === "") {
-              calculate = "";
+        } else if (clickBtnText === "=") {
+          try {
+            if (calculatorInput.value !== "") {
+              calculate = eval(calculate);
               calculatorInput.value = calculate;
-            } else {
-              calculate = calculatorInput.value.slice(0, 0);
-              calculatorInput.value = calculate;
+              numberAnimationGsap(calculate, `${40}px`);
             }
+          } catch (error) {
+            numberAnimationGsap("Error", `${40}px`);
+            calculate = "";
+            calculatorInput.value = calculate;
+            console.log("Incorrect Expression");
           }
-        } else if (
-          calculatorNumbersElemsTargets.currentTarget.textContent === "EC"
-        ) {
+        } else if (clickBtnText === "AC") {
+          numberAnimationGsap("AC", `${40}px`);
+          if (calculatorInput.value !== "") {
+            calculate = "";
+            calculatorInput.value = calculate;
+          }
+        } else if (clickBtnText === "EC") {
           numberAnimationGsap("EC", `${40}px`);
-          if (calculatorInput.value !== "0") {
+          if (calculatorInput.value !== "") {
             if (calculatorInput.value.slice(0, -1) === "") {
               calculate = "";
               calculatorInput.value = calculate;
@@ -79,14 +66,14 @@ Array.from(calculatorNumbers).forEach((calculatorNumbersElems) => {
             }
           }
         } else {
-          calculate += calculatorNumbersElemsTargets.currentTarget.textContent;
+          calculate += clickBtnText;
           calculatorInput.value = calculate;
         }
       } catch (error) {
-        error = "Incorrect Expression";
+        numberAnimationGsap("Error", `${40}px`);
         calculate = "";
         calculatorInput.value = calculate;
-        console.log(error);
+        console.log("Incorrect Expression");
       }
     }
   );
