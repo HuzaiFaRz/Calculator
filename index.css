@@ -34,7 +34,6 @@ body {
   transform: translateY(-50%);
   top: 50%;
   left: 20%;
-  font-size: 100px;
   color: white;
   font-family: numberFont;
 }
