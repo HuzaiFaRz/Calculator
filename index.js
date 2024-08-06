@@ -10,32 +10,43 @@ Array.from(calculatorNumbers).forEach((calculatorNumbersElems) => {
     "click",
     (calculatorNumbersElemsTargets) => {
       try {
+        numberAnimation.textContent =
+          calculatorNumbersElemsTargets.currentTarget.textContent;
         if (calculatorNumbersElemsTargets.currentTarget.textContent === "=") {
-          if (calculatorInput.value !== "0") {
+          if (calculatorInput.value !== 0) {
             calculate = eval(calculate);
             calculatorInput.value = calculate;
           }
         } else if (
           calculatorNumbersElemsTargets.currentTarget.textContent === "AC"
         ) {
-          calculate = "";
-          calculatorInput.value = calculate;
+          if (calculatorInput.value !== "0") {
+            if (calculatorInput.value.slice(0, 0) === "") {
+              calculate = "";
+              calculatorInput.value = calculate;
+            } else {
+              calculate = calculatorInput.value.slice(0, 0);
+              calculatorInput.value = calculate;
+            }
+          }
         } else if (
           calculatorNumbersElemsTargets.currentTarget.textContent === "C"
         ) {
-
-          calculate -= "";
-          calculatorInput.value = calculate;
-          if (calculatorInput.value < 1) {
-            console.log(this);
-
-            calculatorInput.value = "calculate";
+          if (calculatorInput.value !== "0") {
+            if (calculatorInput.value.slice(0, -1) === "") {
+              calculate = "";
+              calculatorInput.value = calculate;
+            } else {
+              calculate = calculatorInput.value.slice(0, -1);
+              calculatorInput.value = calculate;
+            }
           }
         } else {
           calculate += calculatorNumbersElemsTargets.currentTarget.textContent;
           calculatorInput.value = calculate;
         }
       } catch (error) {
+        error = "Incorrect Expression";
         calculate = "";
         calculatorInput.value = calculate;
         console.log(error);
