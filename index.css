@@ -128,6 +128,10 @@ body {
   }
 }
 
+input[type="text"]::-webkit-textfield-decoration-container {
+  display: none;
+}
+
 .calc-input {
   cursor: default !important;
   width: 100%;
@@ -170,7 +174,7 @@ body {
 }
 
 #AllClear,
-#OneClear {
+#EachClear {
   justify-content: flex-start;
   width: 150px;
   border-radius: 40px;
