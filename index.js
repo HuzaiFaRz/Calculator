@@ -2,6 +2,7 @@ const calculatorInput = document.querySelector(".calc-input");
 const calculatorAllClearBtn = document.querySelector(".AllClear");
 const calculatorNumbers = document.querySelectorAll(".number");
 const calculatorSignBtns = document.querySelectorAll(".sign");
+const numberAnimation = document.querySelector(".number-animation");
 let calculate = "";
 
 Array.from(calculatorNumbers).forEach((calculatorNumbersElems) => {
@@ -19,6 +20,17 @@ Array.from(calculatorNumbers).forEach((calculatorNumbersElems) => {
         ) {
           calculate = "";
           calculatorInput.value = calculate;
+        } else if (
+          calculatorNumbersElemsTargets.currentTarget.textContent === "C"
+        ) {
+
+          calculate -= "";
+          calculatorInput.value = calculate;
+          if (calculatorInput.value < 1) {
+            console.log(this);
+
+            calculatorInput.value = "calculate";
+          }
         } else {
           calculate += calculatorNumbersElemsTargets.currentTarget.textContent;
           calculatorInput.value = calculate;
@@ -31,4 +43,3 @@ Array.from(calculatorNumbers).forEach((calculatorNumbersElems) => {
     }
   );
 });
-

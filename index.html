@@ -5,46 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculator</title>
     <link rel="shortcut icon" href="Favicon.png" type="image/x-icon" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="index.css" />
   </head>
 
   <body>
+    <div class="number-animation">1</div>
+
     <div class="calc">
-      <input type="text" class="calc-input" value="0" />
+      <input type="text" class="calc-input" />
 
       <div class="calc-container">
         <div class="calc-row">
-          <span id="AllClear" class="number" value="Ac">AC</span>
-          <span id="percent" class="number" value="%">%</span>
-          <span id="devide" class="number" value="/">/</span>
+          <span id="AllClear" class="number">AC</span>
+          <span id="OneClear" class="number">C</span>
         </div>
 
         <div class="calc-row">
-          <span class="number" value="7">7</span>
-          <span class="number" value="8">8</span>
-          <span class="number" value="9">9</span>
-          <span id="multiply" class="number" value="*">*</span>
+          <span class="number">7</span>
+          <span class="number">8</span>
+          <span class="number">9</span>
+          <span id="sign" class="number ri-divide-fill"><i>/</i></span>
         </div>
 
         <div class="calc-row">
-          <span class="number" value="4">4</span>
-          <span class="number" value="5">5</span>
-          <span class="number" value="6">6</span>
-          <span id="minus" class="number" value="-">-</span>
+          <span class="number">4</span>
+          <span class="number">5</span>
+          <span class="number">6</span>
+          <span id="sign" class="number ri-subtract-line"><i>-</i></span>
         </div>
 
         <div class="calc-row">
-          <span class="number" value="2">1</span>
-          <span class="number" value="2">2</span>
-          <span class="number" value="3">3</span>
-          <span id="plus" class="number" value="+">+</span>
+          <span class="number">1</span>
+          <span class="number">2</span>
+          <span class="number">3</span>
+          <span id="sign" class="number ri-add-line"><i>+</i></span>
         </div>
 
         <div class="calc-row">
-          <span id="Zero" class="number" value="0">0</span>
-          <span id="Dot" class="number" value=".">.</span>
-          <span id="Equal" class="number">=</span>
+          <span class="number">0</span>
+          <span class="number ri-circle-fill" id="dot"><i>.</i></span>
+          <span class="number ri-equal-line" id="sign"><i>=</i></span>
+          <span class="number ri-percent-line" id="sign"><i>%</i></span>
         </div>
+
+
+        
       </div>
     </div>
 
