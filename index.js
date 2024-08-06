@@ -25,6 +25,8 @@ Array.from(calculatorNumbers).forEach((calculatorNumbersElems) => {
     (calculatorNumbersElemsTargets) => {
       try {
         if (calculatorNumbersElemsTargets.currentTarget.textContent === "+") {
+          console.log("dfd");
+          
           numberAnimationGsap("Plus");
         } else {
           numberAnimationGsap(
