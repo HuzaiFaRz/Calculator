@@ -5,57 +5,38 @@ const calculatorSignBtns = document.querySelectorAll(".sign");
 const numberAnimation = document.querySelector(".number-animation");
 let calculate = "";
 
-calculatorInput.addEventListener("focus", (e) => {
+calculatorInput.addEventListener("focus", () => {
   calculatorInput.blur();
 });
 
-const numberAnimationGsap = (numberanimationtext, numberanimationsize) => {
-  numberAnimation.textContent = numberanimationtext;
-  numberAnimation.style.fontSize = numberanimationsize;
+const numberAnimationGsap = (text, size) => {
+  numberAnimation.textContent = text;
+  numberAnimation.style.fontSize = size;
   gsap.from(numberAnimation, {
-    opacity: 0,
-    scale: 1.6,
+    scale: 2.5,
     duration: 0.5,
-    ease: Power2.easeInOut,
+    ease: Expo.easeInOut,
   });
 };
+let clickBtnText;
 
 Array.from(calculatorNumbers).forEach((calculatorNumbersElems) => {
   calculatorNumbersElems.addEventListener(
     "click",
     (calculatorNumbersElemsTargets) => {
       try {
-        let clickBtnText =
-          calculatorNumbersElemsTargets.currentTarget.textContent;
-        if (clickBtnText === "+") {
-          numberAnimationGsap("Plus", `${40}px`);
-        } else if (clickBtnText === "-") {
-          numberAnimationGsap("Minus", `${40}px`);
-        } else if (clickBtnText === "/") {
-          numberAnimationGsap("Devide", `${40}px`);
-        } else if (clickBtnText === "%") {
-          numberAnimationGsap("Percent", `${40}px`);
-        } else if (clickBtnText === "=") {
-          try {
-            if (calculatorInput.value !== "") {
-              calculate = eval(calculate);
-              calculatorInput.value = calculate;
-              numberAnimationGsap(calculate, `${40}px`);
-            }
-          } catch (error) {
-            numberAnimationGsap("Error", `${40}px`);
-            calculate = "";
+        clickBtnText = calculatorNumbersElemsTargets.currentTarget.textContent;
+        if (clickBtnText === "=") {
+          if (calculatorInput.value !== "") {
+            calculate = eval(calculate);
             calculatorInput.value = calculate;
-            console.log("Incorrect Expression");
           }
         } else if (clickBtnText === "AC") {
-          numberAnimationGsap("AC", `${40}px`);
           if (calculatorInput.value !== "") {
             calculate = "";
             calculatorInput.value = calculate;
           }
         } else if (clickBtnText === "EC") {
-          numberAnimationGsap("EC", `${40}px`);
           if (calculatorInput.value !== "") {
             if (calculatorInput.value.slice(0, -1) === "") {
               calculate = "";
@@ -69,12 +50,72 @@ Array.from(calculatorNumbers).forEach((calculatorNumbersElems) => {
           calculate += clickBtnText;
           calculatorInput.value = calculate;
         }
+        switch (clickBtnText) {
+          case "AC":
+            numberAnimationGsap("AC", `${40}px`);
+            break;
+          case "EC":
+            numberAnimationGsap("EC", `${40}px`);
+            break;
+          case "=":
+            numberAnimationGsap(calculate, `${40}px`);
+            break;
+          case "+":
+            numberAnimationGsap("Plus", `${40}px`);
+            break;
+          case "-":
+            numberAnimationGsap("Minus", `${40}px`);
+            break;
+          case "/":
+            numberAnimationGsap("Devide", `${40}px`);
+            break;
+          case "%":
+            numberAnimationGsap("Percent", `${40}px`);
+            break;
+          default:
+            numberAnimationGsap(clickBtnText, `${40}px`);
+            break;
+        }
       } catch (error) {
+        error = "Incorrect Expression";
         numberAnimationGsap("Error", `${40}px`);
         calculate = "";
         calculatorInput.value = calculate;
-        console.log("Incorrect Expression");
+        console.log(error);
       }
     }
   );
 });
+
+// Array.from(calculatorNumbers).forEach((calculatorNumbersElems) => {
+//   calculatorNumbersElems.addEventListener(
+//     "click",
+//     (calculatorNumbersElemsTargets) => {
+//       clickBtnText = calculatorNumbersElemsTargets.currentTarget.textContent;
+
+//       switch (clickBtnText) {
+//         case "AC":
+//           numberAnimationGsap("AC", `${40}px`);
+//           break;
+//         case "EC":
+//           numberAnimationGsap("EC", `${40}px`);
+//           break;
+//         case "+":
+//           numberAnimationGsap("Plus", `${40}px`);
+//           break;
+//         case "-":
+//           numberAnimationGsap("Minus", `${40}px`);
+//           break;
+//         case "/":
+//           numberAnimationGsap("Devide", `${40}px`);
+//           break;
+//         case "%":
+//           numberAnimationGsap("Percent", `${40}px`);
+//           break;
+//         default:
+//           numberAnimationGsap(clickBtnText, `${40}px`);
+//           break;
+//       }
+//     }
+//   );
+// });
