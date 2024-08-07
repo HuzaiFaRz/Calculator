@@ -34,7 +34,6 @@ body {
   transform: translateY(-50%);
   top: 50%;
   left: 20%;
-  transform: scale(1);
   color: white;
   font-family: numberFont;
 }
@@ -195,19 +194,33 @@ span:hover {
   color: black !important;
 }
 
+@media (max-width: 1400px) {
+  .number-animation {
+    position: absolute;
+    transform: translate(0, -50%);
+
+    top: 10%;
+    left: 50%;
+    color: white;
+    font-family: numberFont;
+  }
+}
+
 @media (max-width: 420px) {
   body {
-    padding: 0 20px;
+    padding: 0 40px;
   }
   .calc {
     width: 100%;
   }
 
   .calc-input {
-    font-size: 40px;
+    font-size: 30px;
   }
 
   .number {
+    width: 40px;
+    height: 40px;
     font-size: 20px;
   }
 }

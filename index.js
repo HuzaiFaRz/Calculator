@@ -13,9 +13,10 @@ const numberAnimationGsap = (text, size) => {
   numberAnimation.textContent = text;
   numberAnimation.style.fontSize = size;
   gsap.from(numberAnimation, {
+    opacity:0,
     scale: 2.5,
     duration: 0.5,
-    ease: Expo.easeInOut,
+    ease: Power1.easeInOut,
   });
 };
 let clickBtnText;
@@ -73,7 +74,7 @@ Array.from(calculatorNumbers).forEach((calculatorNumbersElems) => {
             numberAnimationGsap("Percent", `${40}px`);
             break;
           default:
-            numberAnimationGsap(clickBtnText, `${40}px`);
+            numberAnimationGsap(clickBtnText, `${70}px`);
             break;
         }
       } catch (error) {
