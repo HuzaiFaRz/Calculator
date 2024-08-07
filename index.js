@@ -4,6 +4,7 @@ const calculatorNumbers = document.querySelectorAll(".number");
 const calculatorSignBtns = document.querySelectorAll(".sign");
 const numberAnimation = document.querySelector(".number-animation");
 let calculate = "";
+let clickBtnText;
 
 calculatorInput.addEventListener("focus", () => {
   calculatorInput.blur();
@@ -13,13 +14,12 @@ const numberAnimationGsap = (text, size) => {
   numberAnimation.textContent = text;
   numberAnimation.style.fontSize = size;
   gsap.from(numberAnimation, {
-    opacity:0,
+    opacity: 0,
     scale: 2.5,
     duration: 0.5,
     ease: Power1.easeInOut,
   });
 };
-let clickBtnText;
 
 Array.from(calculatorNumbers).forEach((calculatorNumbersElems) => {
   calculatorNumbersElems.addEventListener(
@@ -87,36 +87,3 @@ Array.from(calculatorNumbers).forEach((calculatorNumbersElems) => {
     }
   );
 });
-
-// Array.from(calculatorNumbers).forEach((calculatorNumbersElems) => {
-//   calculatorNumbersElems.addEventListener(
-//     "click",
-//     (calculatorNumbersElemsTargets) => {
-//       clickBtnText = calculatorNumbersElemsTargets.currentTarget.textContent;
-
-//       switch (clickBtnText) {
-//         case "AC":
-//           numberAnimationGsap("AC", `${40}px`);
-//           break;
-//         case "EC":
-//           numberAnimationGsap("EC", `${40}px`);
-//           break;
-//         case "+":
-//           numberAnimationGsap("Plus", `${40}px`);
-//           break;
-//         case "-":
-//           numberAnimationGsap("Minus", `${40}px`);
-//           break;
-//         case "/":
-//           numberAnimationGsap("Devide", `${40}px`);
-//           break;
-//         case "%":
-//           numberAnimationGsap("Percent", `${40}px`);
-//           break;
-//         default:
-//           numberAnimationGsap(clickBtnText, `${40}px`);
-//           break;
-//       }
-//     }
-//   );
-// });
