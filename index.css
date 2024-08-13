@@ -108,7 +108,7 @@ body {
   animation: spin 6s linear infinite;
 }
 .calc::before {
-  filter: blur(1.5rem);
+  filter: blur(20px);
   opacity: 1;
 }
 
@@ -127,9 +127,9 @@ body {
   }
 }
 
-input[type="text"]::-webkit-textfield-decoration-container {
+/* input[type="text"]::-webkit-textfield-decoration-container {
   display: none;
-}
+} */
 
 .calc-input {
   cursor: default !important;
