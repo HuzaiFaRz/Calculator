@@ -162,6 +162,7 @@ body {
   color: black;
   background: silver;
   border-radius: 50%;
+  z-index: 111;
 }
 
 #dot {

@@ -10,21 +10,22 @@ calculatorInput.addEventListener("focus", () => {
   calculatorInput.blur();
 });
 
-
+let gsapTl = gsap.timeline();
+console.log(gsapTl);
 
 const numberAnimationGsap = (text, size) => {
   numberAnimation.textContent = text;
   numberAnimation.style.fontSize = size;
-  gsap.from(numberAnimation, {
+  gsapTl.to(numberAnimation, {
     opacity: 0,
     scale: 2.5,
     duration: 0.5,
     ease: Power2.easeInOut,
     onComplete: () => {
-      gsap.set(numberAnimation, {
+      gsapTl.set(numberAnimation, {
         opacity: 1,
         scale: 1,
-        duration: 0.1,
+        duration: 0.2,
         ease: Power2.easeInOut,
       });
     },
