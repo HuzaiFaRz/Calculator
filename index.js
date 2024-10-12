@@ -2,7 +2,7 @@ const calculatorInput = document.querySelector(".calc-input");
 const calculatorAllClearBtn = document.querySelector(".AllClear");
 const calculatorNumbers = document.querySelectorAll(".number");
 const calculatorSignBtns = document.querySelectorAll(".sign");
-const numberAnimation = document.querySelector(".number-animation");
+const numberAnimation = document.querySelector(".number-animation h4");
 let calculate = "";
 let clickBtnText;
 
@@ -11,7 +11,6 @@ calculatorInput.addEventListener("focus", () => {
 });
 
 let gsapTl = gsap.timeline();
-console.log(gsapTl);
 
 const numberAnimationGsap = (text, size) => {
   numberAnimation.textContent = text;
