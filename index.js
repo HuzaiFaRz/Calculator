@@ -10,26 +10,26 @@ calculatorInput.addEventListener("focus", () => {
   calculatorInput.blur();
 });
 
-let gsapTl = gsap.timeline();
+// let gsapTl = gsap.timeline();
 
-const numberAnimationGsap = (text, size) => {
-  numberAnimation.textContent = text;
-  numberAnimation.style.fontSize = size;
-  gsapTl.from(numberAnimation, {
-    opacity: 0,
-    scale: 2.5,
-    duration: 0.5,
-    ease: Power2.easeInOut,
-    onComplete: () => {
-      gsapTl.from(numberAnimation, {
-        opacity: 1,
-        scale: 1,
-        duration: 0.2,
-        ease: Power2.easeInOut,
-      });
-    },
-  });
-};
+// const numberAnimationGsap = (text, size) => {
+//   numberAnimation.textContent = text;
+//   numberAnimation.style.fontSize = size;
+//   gsapTl.from(numberAnimation, {
+//     opacity: 0,
+//     scale: 2.5,
+//     duration: 0.5,
+//     ease: Power2.easeInOut,
+//     onComplete: () => {
+//       gsapTl.from(numberAnimation, {
+//         opacity: 1,
+//         scale: 1,
+//         duration: 0.2,
+//         ease: Power2.easeInOut,
+//       });
+//     },
+//   });
+// };
 
 Array.from(calculatorNumbers).forEach((calculatorNumbersElems) => {
   calculatorNumbersElems.addEventListener(
@@ -61,35 +61,35 @@ Array.from(calculatorNumbers).forEach((calculatorNumbersElems) => {
           calculate += clickBtnText;
           calculatorInput.value = calculate;
         }
-        switch (clickBtnText) {
-          case "AC":
-            numberAnimationGsap("AC", `${40}px`);
-            break;
-          case "EC":
-            numberAnimationGsap("EC", `${40}px`);
-            break;
-          case "=":
-            numberAnimationGsap(calculate, `${40}px`);
-            break;
-          case "+":
-            numberAnimationGsap("Plus", `${40}px`);
-            break;
-          case "-":
-            numberAnimationGsap("Minus", `${40}px`);
-            break;
-          case "/":
-            numberAnimationGsap("Devide", `${40}px`);
-            break;
-          case "%":
-            numberAnimationGsap("Percent", `${40}px`);
-            break;
-          default:
-            numberAnimationGsap(clickBtnText, `${70}px`);
-            break;
-        }
+        // switch (clickBtnText) {
+        //   case "AC":
+        //     numberAnimationGsap("AC", `${40}px`);
+        //     break;
+        //   case "EC":
+        //     numberAnimationGsap("EC", `${40}px`);
+        //     break;
+        //   case "=":
+        //     numberAnimationGsap(calculate, `${40}px`);
+        //     break;
+        //   case "+":
+        //     numberAnimationGsap("Plus", `${40}px`);
+        //     break;
+        //   case "-":
+        //     numberAnimationGsap("Minus", `${40}px`);
+        //     break;
+        //   case "/":
+        //     numberAnimationGsap("Devide", `${40}px`);
+        //     break;
+        //   case "%":
+        //     numberAnimationGsap("Percent", `${40}px`);
+        //     break;
+        //   default:
+        //     numberAnimationGsap(clickBtnText, `${70}px`);
+        //     break;
+        // }
       } catch (error) {
         error = "Incorrect Expression";
-        numberAnimationGsap("Error", `${40}px`);
+        // numberAnimationGsap("Error", `${40}px`);
         calculate = "";
         calculatorInput.value = calculate;
         console.log(error);
